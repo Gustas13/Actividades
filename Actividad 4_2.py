@@ -11,7 +11,6 @@ while True:
         print("\n¿Cuál es el mes de nacimiento?: ")
         mes = input()
         print("\n")
-        print(mes,"\n")
 
         if mes == "Enero":
          if d>=20:

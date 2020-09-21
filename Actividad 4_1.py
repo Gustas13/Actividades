@@ -1,12 +1,12 @@
 from math import pi
-def cuadrado (a:float,b:float)->float:
-    area=a*b
+def cuadrado (a:float)->float:
+    area=a**2
     return area
 def triangulo (a:float,b:float)->float:
     area=(a*b)/2
     return area
 def circulo (a:float)->float:
-    area = (a**a)*pi
+    area = pi*(a**2)
     return area  
 
 print("Elija una opción para calcular el área")
@@ -18,9 +18,8 @@ while True:
     op = input()
 
     if op =="1":
-     a = float(input("Base: "))
-     b = float(input("Altura: "))
-     print("Área: ",cuadrado(a,b))
+     a = float(input("Tamaño de un lado: "))
+     print("Área: ",cuadrado(a))
     elif op =="2":
      a = float(input("Base: "))
      b = float(input("Altura: "))
