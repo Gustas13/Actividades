@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
             QMessageBox.critical(
                 self,
                 "Error",
-                "Errro al abrir el archivo: " + ubicacion
+                "Error al abrir el archivo: " + ubicacion
             )
         #print('abiri_archivo')
     
