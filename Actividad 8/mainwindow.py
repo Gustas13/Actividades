@@ -31,13 +31,13 @@ class MainWindow(QMainWindow):
             QMessageBox.information(
                 self,
                 "Éxito",
-                "Se abrio el archivo " + ubicacion
+                "Se abrio el archivo: " + ubicacion
             )
         else:
             QMessageBox.critical(
                 self,
                 "Error",
-                "Errro al abrir el archivo " + ubicacion
+                "Errro al abrir el archivo: " + ubicacion
             )
         #print('abiri_archivo')
     
@@ -54,13 +54,13 @@ class MainWindow(QMainWindow):
             QMessageBox.information(
                 self,
                 "Éxito",
-                "Se pudo crear el archivo" + ubicacion
+                "Se pudo crear el archivo: " + ubicacion
             )
         else:
             QMessageBox.critical(
                 self,
                 "Error",
-                "No se pudo crear el archivo"+ubicacion
+                "No se pudo crear el archivo"+ ubicacion
             )
     def click_mostrar(self):
         #self.administradorP.mostrar()
