@@ -1,5 +1,5 @@
 from  particula import Particula
-
+import json
 class AdministradorP:
     def __init__(self):
         self.__particulas = []
@@ -16,3 +16,24 @@ class AdministradorP:
         
     def __str__(self):
         return "".join (str(particula) + '\n' for particula in self.__particulas)
+
+    def guardar (self, ubicacion):
+        try:
+            with open(ubicacion, 'w') as archivo:
+                lista = [particula.to_dict() for particula in self.__particulas]
+                print (lista)
+                json.dump(lista, archivo, indent=5)
+                #archivo.write(str(self)) 
+                return 1
+
+        except:
+                return 0
+    
+    def abrir(self, ubicacion):
+        try:
+            with open(ubicacion, 'r') as archivo:
+                lista = json.load(archivo)
+                self.__particulas = [Particula(**particula) for particula in lista]
+            return 1
+        except:
+            return 0 
