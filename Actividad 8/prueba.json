@@ -1,0 +1,35 @@
+[
+     {
+          "id": "02",
+          "origen_x": 80,
+          "origen_y": 50,
+          "destino_x": 500,
+          "destino_y": 500,
+          "velocidad": "900",
+          "red": 15,
+          "green": 255,
+          "blue": 11
+     },
+     {
+          "id": "01",
+          "origen_x": 1,
+          "origen_y": 2,
+          "destino_x": 350,
+          "destino_y": 350,
+          "velocidad": "90",
+          "red": 52,
+          "green": 18,
+          "blue": 23
+     },
+     {
+          "id": "03",
+          "origen_x": 18,
+          "origen_y": 25,
+          "destino_x": 389,
+          "destino_y": 389,
+          "velocidad": "300",
+          "red": 65,
+          "green": 60,
+          "blue": 88
+     }
+]
