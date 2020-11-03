@@ -30,6 +30,9 @@ class MainWindow(QMainWindow):
         for particula in self.administradorP:
             if id == particula.id:
                 self.ui.table.clear()
+                self.ui.table.setColumnCount(10)
+                headers = ["ID","Origen X", "Origen Y", "Destino X", "Destino Y", "Distancia","Red","Green","Blue","Velocidad"]
+                self.ui.table.setHorizontalHeaderLabels(headers)
                 self.ui.table.setRowCount(1)
                 id_widget = QTableWidgetItem (str(particula.id))
                 origenx_widget = QTableWidgetItem (str(particula.origen_x))
@@ -54,7 +57,7 @@ class MainWindow(QMainWindow):
                 self.ui.table.setItem(0, 9, distancia_widget)
                 encontrado = True
                 return
-                #print('Sí')
+                
         if not encontrado:
             QMessageBox.warning(
                 self,
