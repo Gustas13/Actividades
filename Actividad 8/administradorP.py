@@ -17,6 +17,23 @@ class AdministradorP:
     def __str__(self):
         return "".join (str(particula) + '\n' for particula in self.__particulas)
 
+    def __len__(self):
+        return len(self.__particulas)
+
+    def __iter__(self):
+        self.cont = 0
+        return self
+
+    def __next__(self):
+        if self.cont < len (self.__particulas):
+            particula = self.__particulas[self.cont]
+            self.cont += 1
+            return particula
+
+        else:    
+            raise StopIteration
+        
+
     def guardar (self, ubicacion):
         try:
             with open(ubicacion, 'w') as archivo:
