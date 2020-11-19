@@ -31,6 +31,15 @@ class MainWindow(QMainWindow):
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
 
+        #Metodos Sort QPlainTextEdit
+        self.ui.Ordenar_Distancia_pushButton.clicked.connect(self.ordenarD)
+        self.ui.Ordenar_ID_pushButton.clicked.connect(self.ordenarID)
+        self.ui.Ordenar_Velocidad_pushButton.clicked.connect(self.ordenarV)
+        #Metodos Sort QTableWidget
+        self.ui.ordenarDistanciaT_pushButton.clicked.connect(self.ordenarDT)
+        self.ui.ordenarVelocidadT_pushButton.clicked.connect(self.ordenarVT)
+        self.ui.ordenarIDT_pushButton.clicked.connect(self.ordenarIDT)
+
 
     @Slot()
 
@@ -41,7 +50,7 @@ class MainWindow(QMainWindow):
             if id == particula.id:
                 self.ui.table.clear()
                 self.ui.table.setColumnCount(10)
-                headers = ["ID","Origen X", "Origen Y", "Destino X", "Destino Y", "Distancia","Red","Green","Blue","Velocidad"]
+                headers = ["ID","Origen X", "Origen Y", "Destino X", "Destino Y","Velocidad","Red","Green","Blue","Distancia"]
                 self.ui.table.setHorizontalHeaderLabels(headers)
                 self.ui.table.setRowCount(1)
                 id_widget = QTableWidgetItem (str(particula.id))
@@ -77,7 +86,7 @@ class MainWindow(QMainWindow):
 
     def mostrar_tabla(self):
         self.ui.table.setColumnCount(10)
-        headers = ["ID","Origen X", "Origen Y", "Destino X", "Destino Y", "Distancia","Red","Green","Blue","Velocidad"]
+        headers = ["ID","Origen X", "Origen Y", "Destino X", "Destino Y", "Velocidad","Red","Green","Blue","Distancia"]
         self.ui.table.setHorizontalHeaderLabels(headers)
 
         self.ui.table.setRowCount(len(self.administradorP))
@@ -220,3 +229,37 @@ class MainWindow(QMainWindow):
     def limpiar(self):
         #print('limpiar')
         self.scene.clear()
+
+    # Métodos sort
+    @Slot()
+
+    def ordenarD (self):
+        self.ui.salida.clear()
+        self.administradorP.ordenarDist()
+        self.ui.salida.insertPlainText(str(self.administradorP))
+    
+    def ordenarV (self):
+        self.ui.salida.clear()
+        self.administradorP.ordenarVel()
+        self.ui.salida.insertPlainText(str(self.administradorP))
+
+    def ordenarID (self):
+        self.ui.salida.clear()
+        self.administradorP.ordenarId()
+        self.ui.salida.insertPlainText(str(self.administradorP))
+            
+
+    def ordenarDT (self):
+        self.ui.salida.clear()
+        self.administradorP.ordenarDist()
+        self.mostrar_tabla()
+
+    def ordenarIDT (self):
+        self.ui.salida.clear()
+        self.administradorP.ordenarId()
+        self.mostrar_tabla()
+
+    def ordenarVT (self):
+        self.ui.salida.clear()
+        self.administradorP.ordenarVel()   
+        self.mostrar_tabla()
