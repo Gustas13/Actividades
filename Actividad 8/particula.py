@@ -1,6 +1,6 @@
 from algoritmos import distancia_euclidiana
 class Particula:
-    def __init__(self, id, origen_x, origen_y,destino_x, destino_y, velocidad, red, green, blue):
+    def __init__(self, id, origen_x, origen_y,destino_x, destino_y,  velocidad, red, green, blue):
         self.__id = id
         self.__origen_x = origen_x
         self.__origen_y = origen_y
@@ -79,3 +79,8 @@ class Particula:
     @property
     def distancia(self):
         return self.__distancia
+
+    #Sort
+    def __lt__(self, other):
+        return int(self.velocidad) < int(other.velocidad)
+        
