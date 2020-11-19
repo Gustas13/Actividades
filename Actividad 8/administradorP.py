@@ -54,3 +54,21 @@ class AdministradorP:
             return 1
         except:
             return 0 
+    
+    #Sort
+    def ordenarVel(self):
+        self.__particulas.sort()
+
+    #Lambda
+    def ordenarDist(self):
+        self.__particulas.sort(key=lambda particula:particula.distancia, reverse=True)
+
+    def ordenarId(self):
+        self.__particulas.sort(key=lambda particula:particula.id)
+    
+            
+            
+
+             
+     
+        
