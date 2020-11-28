@@ -1,8 +1,12 @@
 from  particula import Particula
 import json
+#Aristas
+from pprint import pprint, pformat
+
 class AdministradorP:
     def __init__(self):
         self.__particulas = []
+        self.grafo = dict()
     
     def agregar_final(self, particula:Particula):
         self.__particulas.append(particula)
@@ -66,7 +70,28 @@ class AdministradorP:
     def ordenarId(self):
         self.__particulas.sort(key=lambda particula:particula.id)
     
-            
+    #Aristas      
+     
+    def RecuperarAris(self):
+        self.grafo.clear()
+        for particula in self.__particulas: 
+            origen = str(particula.origen_x) +', ' + str(particula.origen_y).upper()
+            destino = (str(particula.destino_x) +', ' + str(particula.destino_y)).upper()
+            peso = int(particula.distancia)
+            arista_o_d = (destino, peso)
+            arista_d_o = (origen, peso)
+            if origen in self.grafo:
+               self.grafo[origen].append(arista_o_d)
+            else:
+               self.grafo[origen] = [arista_o_d]
+            if destino in self.grafo:
+              self.grafo[destino].append(arista_d_o)
+            else:
+               self.grafo[destino] = [arista_d_o]
+
+        a = str(pformat(self.grafo, width=40, indent=1)+'\n')
+        print(a)
+        return a
             
 
              
