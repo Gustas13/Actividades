@@ -40,6 +40,9 @@ class MainWindow(QMainWindow):
         self.ui.ordenarVelocidadT_pushButton.clicked.connect(self.ordenarVT)
         self.ui.ordenarIDT_pushButton.clicked.connect(self.ordenarIDT)
 
+        #ARISTAS
+        self.ui.Mostrar_Grafo.clicked.connect(self.MostrarAris)
+
 
     @Slot()
 
@@ -263,3 +266,8 @@ class MainWindow(QMainWindow):
         self.ui.salida.clear()
         self.administradorP.ordenarVel()   
         self.mostrar_tabla()
+
+     #ARISTAS   
+    def MostrarAris(self):
+      self.ui.salida.clear()  
+      self.ui.salida.insertPlainText(str(self.administradorP.RecuperarAris()))
