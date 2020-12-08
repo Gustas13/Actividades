@@ -3,6 +3,14 @@ import json
 #Aristas
 from pprint import pprint, pformat
 
+#Recorridos
+import numpy
+import queue
+
+
+
+
+
 class AdministradorP:
     def __init__(self):
         self.__particulas = []
@@ -58,6 +66,7 @@ class AdministradorP:
             return 1
         except:
             return 0 
+            
     
     #Sort
     def ordenarVel(self):
@@ -75,11 +84,12 @@ class AdministradorP:
     def RecuperarAris(self):
         self.grafo.clear()
         for particula in self.__particulas: 
-            origen = str(particula.origen_x) +', ' + str(particula.origen_y).upper()
-            destino = (str(particula.destino_x) +', ' + str(particula.destino_y)).upper()
+            origen = str(particula.origen_x) + ','  + str(particula.origen_y).upper()
+            destino = (str(particula.destino_x) + ',' + str(particula.destino_y)).upper()
             peso = int(particula.distancia)
             arista_o_d = (destino, peso)
             arista_d_o = (origen, peso)
+            
             if origen in self.grafo:
                self.grafo[origen].append(arista_o_d)
             else:
@@ -92,7 +102,65 @@ class AdministradorP:
         a = str(pformat(self.grafo, width=40, indent=1)+'\n')
         print(a)
         return a
+    
+    def Recorridos(self, nodo):
+        self.grafo.clear()
+        visitados = []
+        pila = []
+        cola = []
+        for particula in self.__particulas: 
+            origen = str(particula.origen_x) +', ' + str(particula.origen_y).upper()
+            destino = (str(particula.destino_x) +', ' + str(particula.destino_y)).upper()
+            peso = int(particula.distancia)
+            arista_o_d = (destino, peso)
+            arista_d_o = (origen, peso)
             
+            if origen in self.grafo:
+               self.grafo[origen].append(arista_o_d)
+            else:
+               self.grafo[origen] = [arista_o_d]
+            if destino in self.grafo:
+              self.grafo[destino].append(arista_d_o)
+            else:
+              self.grafo[destino] = [arista_d_o]
+
+        print("\nOrigen: (",nodo,")")
+        print("\nPROFUNDIDAD")
+        pila.append(nodo)
+        while len(pila) > 0:
+            actual = pila.pop()
+            print("(",actual,")")
+            
+
+            if actual not in visitados:
+                visitados.append(actual)
+            for key, list in self.grafo[actual]:
+                if key not in visitados and key not in pila:
+                    pila.append(key)
+
+        visitados.clear()
+        print("\nAMPLITUD")
+        cola.append(nodo)
+        while len(cola) > 0:
+            actual = cola[0]
+            del(cola[0])
+            print("(",actual,")")
+
+            if actual not in visitados:
+                visitados.append(actual)
+            for key, list in self.grafo[actual]:
+                if key not in visitados and key not in cola:
+                    cola.append(key)
+    
+
+
+        
+
+
+
+
+
+    
 
              
      
