@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>705</height>
+    <width>599</width>
+    <height>754</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -211,6 +211,13 @@
              </property>
             </widget>
            </item>
+           <item row="17" column="0" colspan="2">
+            <widget class="QPushButton" name="RecorridosG">
+             <property name="text">
+              <string>Recorridos </string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -304,7 +311,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>550</width>
+     <width>599</width>
      <height>26</height>
     </rect>
    </property>
