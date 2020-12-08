@@ -43,6 +43,9 @@ class MainWindow(QMainWindow):
         #ARISTAS
         self.ui.Mostrar_Grafo.clicked.connect(self.MostrarAris)
 
+        #Recorridos
+        self.ui.RecorridosG.clicked.connect(self.Recorrido)
+
 
     @Slot()
 
@@ -271,3 +274,7 @@ class MainWindow(QMainWindow):
     def MostrarAris(self):
       self.ui.salida.clear()  
       self.ui.salida.insertPlainText(str(self.administradorP.RecuperarAris()))
+
+    def Recorrido(self):
+        nodo = str(self.ui.OrigenX_spinBox.value()) +', ' + str(self.ui.OrigenY_spinBox.value()).upper()
+        self.administradorP.Recorridos(nodo)
