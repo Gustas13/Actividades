@@ -17,7 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(550, 705)
+        MainWindow.resize(599, 754)
         self.actionAbrir = QAction(MainWindow)
         self.actionAbrir.setObjectName(u"actionAbrir")
         self.actionGuardar = QAction(MainWindow)
@@ -175,6 +175,11 @@ class Ui_MainWindow(object):
 
         self.formLayout.setWidget(16, QFormLayout.SpanningRole, self.Mostrar_Grafo)
 
+        self.RecorridosG = QPushButton(self.groupBox)
+        self.RecorridosG.setObjectName(u"RecorridosG")
+
+        self.formLayout.setWidget(17, QFormLayout.SpanningRole, self.RecorridosG)
+
 
         self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.groupBox)
 
@@ -250,7 +255,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 550, 26))
+        self.menubar.setGeometry(QRect(0, 0, 599, 26))
         self.menuArchivo = QMenu(self.menubar)
         self.menuArchivo.setObjectName(u"menuArchivo")
         MainWindow.setMenuBar(self.menubar)
@@ -298,6 +303,7 @@ class Ui_MainWindow(object):
         self.Ordenar_Distancia_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por Distancia", None))
         self.Ordenar_Velocidad_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por Velocidad", None))
         self.Mostrar_Grafo.setText(QCoreApplication.translate("MainWindow", u"Mostrar Grafo", None))
+        self.RecorridosG.setText(QCoreApplication.translate("MainWindow", u"Recorridos ", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Agregar", None))
         self.ordenarVelocidadT_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por Velocidad", None))
         self.ordenarDistanciaT_pushButton.setText(QCoreApplication.translate("MainWindow", u"Ordenar por Distancia", None))
